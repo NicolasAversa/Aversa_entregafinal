@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="card mb-3 shadow-sm border-0">
+      <div class="row no-gutters">
+        <div class="col-sm-6 p-1">
+          <img [src]="product.acf.photo" class="card-img" alt="" />
+        </div>
+        <div class="col-sm-6">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.title.rendered }}</h5>
+            <h4 class="card-title">
+              {{ product.acf.price | currency: "USD":"symbol":"1.1-1" }}
+            </h4>
+            <p class="card-text">
+              {{ product.acf.description }}
+            </p>
+            <p class="text-muted">
+              Quedan {{ product.acf.sku }} artículos como este.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

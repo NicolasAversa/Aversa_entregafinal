@@ -1,0 +1,25 @@
+<div class="card mb-3 shadow-sm">
+  <div class="row no-gutters">
+    <div class="col-sm-3">
+      <img [src]="data.acf.photo" class="card-img" alt="" />
+    </div>
+    <div class="col-sm-9">
+      <div class="card-body">
+        <a [routerLink]="['/producto/' + data.id]">
+          <h5 class="card-title">{{ data.title.rendered }}</h5>
+        </a>
+        <h4 class="card-title">
+          {{ data.acf.price | currency: "USD":"symbol":"1.1-1" }}
+        </h4>
+        <p class="card-text">{{ data.acf.description | slice: 0:120 }}...</p>
+        <!-- <button
+        type="button"
+        class="btn btn-outline-danger"
+        (click)="handleDelete(i)"
+      >
+        Eliminar elemento
+      </button> -->
+      </div>
+    </div>
+  </div>
+</div>

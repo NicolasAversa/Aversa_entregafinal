@@ -1,0 +1,104 @@
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-sm-6 offset-md-3 p-5 rounded bg-white shadow-sm">
+      <h2>Registrarse</h2>
+      <form [formGroup]="form" (ngSubmit)="handleRegister()">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid': form.get('name').errors && form.get('name').dirty
+            }"
+            formControlName="name"
+          />
+          <div
+            *ngIf="form.get('name').hasError('required')"
+            class="invalid-feedback"
+          >
+            Este campo es obligatorio.
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Apellido</label>
+          <input
+            type="text"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                form.get('lastName').errors && form.get('lastName').dirty
+            }"
+            formControlName="lastName"
+          />
+          <div
+            *ngIf="form.get('lastName').hasError('required')"
+            class="invalid-feedback"
+          >
+            Este campo es obligatorio.
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Numero de teléfono</label>
+          <input type="text" class="form-control" formControlName="phone" />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input
+            type="text"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid': form.get('email').errors && form.get('email').dirty
+            }"
+            formControlName="email"
+          />
+          <div
+            *ngIf="form.get('email').hasError('required')"
+            class="invalid-feedback"
+          >
+            Este campo es obligatorio.
+          </div>
+          <div
+            *ngIf="form.get('email').hasError('email')"
+            class="invalid-feedback"
+          >
+            Por favor coloque una dirección de correo electronico válido.
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Contraseña</label>
+          <input
+            type="password"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                form.get('password').errors && form.get('password').dirty
+            }"
+            formControlName="password"
+          />
+          <div
+            *ngIf="form.get('password').hasError('required')"
+            class="invalid-feedback"
+          >
+            Este campo es obligatorio.
+          </div>
+          <div
+            *ngIf="form.get('password').hasError('minlength')"
+            class="invalid-feedback"
+          >
+            La contaseña debe tener mas de 6 caracteres.
+          </div>
+          <div
+            *ngIf="form.get('password').hasError('maxlength')"
+            class="invalid-feedback"
+          >
+            La contaseña debe tener menos de 10 caracteres.
+          </div>
+        </div>
+        <button type="submit" [disabled]="form.invalid" class="btn btn-primary">
+          Ingresar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
